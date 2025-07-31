@@ -28,7 +28,7 @@ RUN apk add --no-cache \
 
 RUN npm install -g \
     playwright \
-    puppeteer-core \
+    puppeteer \
     node-fetch
 
 # Copy only the necessary files from the builder stage

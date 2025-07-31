@@ -26,6 +26,10 @@ RUN apk add --no-cache \
     nodejs \
     npm
 
+RUN npm install -g \
+    playwright \
+    puppeteer-core
+
 # Copy only the necessary files from the builder stage
 COPY --from=builder /app/dist ./dist
 COPY package*.json ./

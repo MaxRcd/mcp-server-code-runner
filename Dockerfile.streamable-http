@@ -33,6 +33,12 @@ COPY package*.json ./
 # Install only production dependencies
 RUN npm install --production --ignore-scripts
 
+# More packages for snippets
+RUN npm install -g \
+    playwright \
+    puppeteer \
+    node-fetch
+
 # Use a non-root user for security (optional)
 RUN adduser -D mcpuser
 USER mcpuser

@@ -26,11 +26,6 @@ RUN apk add --no-cache \
     nodejs \
     npm
 
-RUN npm install -g \
-    playwright \
-    puppeteer \
-    node-fetch
-
 # Copy only the necessary files from the builder stage
 COPY --from=builder /app/dist ./dist
 COPY package*.json ./
@@ -39,8 +34,8 @@ COPY package*.json ./
 RUN npm install --production --ignore-scripts
 
 # Use a non-root user for security (optional)
-# RUN adduser -D mcpuser
-# USER mcpuser
+RUN adduser -D mcpuser
+USER mcpuser
 
 # Set the entrypoint command
 CMD ["node", "./dist/cli.js", "--transport", "http"]

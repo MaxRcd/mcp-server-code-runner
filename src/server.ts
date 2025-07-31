@@ -74,7 +74,10 @@ function getFileExtension(languageId: string): string {
 async function executeCommand(command: string): Promise<string> {
   return new Promise((resolve, reject) => {
     console.debug(`Executing command: ${command}`);
-    exec(command, (error: any, stdout: string, stderr: string) => {
+    exec(command, {env: {
+      ...process.env,
+      NODE_PATH: "/usr/local/lib/node_modules"
+    }}, (error: any, stdout: string, stderr: string) => {
       if (error) {
         reject(`Error: ${error.message}`);
       }

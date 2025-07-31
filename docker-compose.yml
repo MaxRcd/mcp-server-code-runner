@@ -3,3 +3,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.streamable-http
+    restart: unless-stopped
+    networks:
+      - traefik_network
+
+networks:
+  traefik_network:
+    external: true
+
+#Ports 3088

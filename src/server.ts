@@ -14,7 +14,7 @@ export function createServer(): McpServer {
 
   server.tool(
     "run-code",
-    "Run code snippet and return the result.",
+    "Run code snippets and return execution logs",
     {
       code: z.string().describe("Code Snippet"),
       languageId: z.enum(Object.keys(languageIdToExecutorMap) as [keyof typeof languageIdToExecutorMap]).describe("Language ID"),

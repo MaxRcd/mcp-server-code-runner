@@ -1,8 +1,9 @@
 services:
-  mcp-code-runner:
+  server:
     build:
       context: .
       dockerfile: Dockerfile.streamable-http
+    container_name: mcp-code-runner-server
     restart: unless-stopped
     networks:
       - traefik_network

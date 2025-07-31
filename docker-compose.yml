@@ -1,0 +1,5 @@
+services:
+  mcp-code-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile.streamable-http
